@@ -29,7 +29,7 @@ export const projectsData = [
         techStack: ["React", "Firebase", "Zustand", "CSS Modules"],
         description:
             "A real-time messaging application with user presence status and live group conversations.",
-        image: "/projects/shoping.jpg",
+        image: "/projects/chat.jpg",
         link: "#",
         accent:
             'from-purple-400/20 via-purple-300/10 to-background border-purple-400/40',
@@ -39,7 +39,7 @@ export const projectsData = [
         techStack: ["Next.js", "Supabase", "Tailwind CSS", "Shadcn UI"],
         description:
             "Kanban-style project management app inspired by Jira with drag-and-drop tasks and role-based access.",
-        image: "/projects/shoping.jpg",
+        image: "/projects/project.jpg",
         link: "#",
         accent:
             'from-cyan-400/20 via-cyan-200/10 to-background border-cyan-400/40',
@@ -49,7 +49,7 @@ export const projectsData = [
         techStack: ["Next.js", "Framer Motion", "Tailwind CSS"],
         description:
             "Developer portfolio with smooth animations, blog section, and project showcase.",
-        image: "/projects/shoping.jpg",
+        image: "/projects/exam.jpg",
         link: "#",
         accent: 'from-primary/20 via-primary/5 to-background border-primary/40',
     },
@@ -58,7 +58,7 @@ export const projectsData = [
         techStack: ["React", "OpenWeather API", "CSS Modules"],
         description:
             "A weather app that fetches real-time data using API integration and displays detailed forecasts.",
-        image: "/projects/shoping.jpg",
+        image: "/projects/project.jpg",
         link: "#",
         accent: 'from-blue-400/20 via-blue-400/5 to-background border-blue-400/40',
     },
@@ -67,7 +67,7 @@ export const projectsData = [
         techStack: ["Next.js", "MongoDB", "JWT Auth", "Tailwind CSS"],
         description:
             "An online quiz system with dynamic question rendering, timer, scoring, and leaderboard.",
-        image: "/projects/shoping.jpg",
+        image: "/projects/chat.jpg",
         link: "#",
         accent:
             'from-amber-400/20 via-amber-200/10 to-background border-amber-400/40',
@@ -78,17 +78,17 @@ export const projectsData = [
 
 export function Projects() {
     return (
-        <section id="projects" className="space-y-4">
-            <div className="space-y-2 text-center">
-                <h2 className="uppercase text-base font-medium text-rose-500">Visit my portfolio and keep your feedback</h2>
-                <h1 className="lg:text-5xl md:text-3xl text-xl font-bold leading-[55px]">My Projects</h1>
+        <section id="projects" className="space-y-4 py-4 md:py-8 lg:py-12">
+            <div className="space-y-2 ">
+                <h2 className="uppercase text-base font-medium text-rose-500 leading-none">Visit my portfolio and keep your feedback</h2>
+                <h1 className="md:text-3xl  font-bold">My Projects</h1>
             </div>
 
-            <section className="grid gap-6 md:grid-cols-3 mt-8">
+            <section className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-4">
                 {projectsData.map((p, i) => (
                     <Card
                         key={i}
-                        className={`group flex flex-col justify-between rounded-md border bg-linear-to-br shadow-lg shadow-black/5 backdrop-blur p-0 ${p.accent} `}
+                        className={`group flex flex-col justify-between rounded-md border bg-linear-to-br shadow-lg shadow-black/5 backdrop-blur h-full p-0 ${p.accent} `}
                     >
                         <CardHeader className="space-y-3 p-0 relative aspect-video">
                             <Image

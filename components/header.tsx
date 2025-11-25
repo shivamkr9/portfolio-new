@@ -7,6 +7,7 @@ import React from 'react'
 import { MdOutlineQrCode } from "react-icons/md"
 import { ModeSwitcher } from './mode-switcher'
 import { menuItems } from '@/data/menus'
+import { Icons } from './icons'
 
 export const HeroHeader = () => {
     const [menuState, setMenuState] = React.useState(false)
@@ -19,8 +20,18 @@ export const HeroHeader = () => {
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
+
+    React.useEffect(() => {
+        const link = document.createElement("a");
+        link.href = "/resume/shivam.pdf"; // file in public/files/
+        link.download = "shivam.pdf"; // optional filename
+        // some browsers block automatic download — user gesture may be required
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    }, []);
     return (
-        <header>
+        <header className='relative'>
             <nav
                 data-state={menuState && 'active'}
                 className="fixed z-20 w-full px-2">
@@ -82,12 +93,19 @@ export const HeroHeader = () => {
                                     asChild
                                     size="sm"
                                 >
-                                    <Link href="#">
+                                    <Link href="/resume/shivam.pdf" target='_blank' download={true}>
                                         <span>Resume</span>
                                     </Link>
                                 </Button>
                                 <div className='lg:block hidden'>
                                     <ModeSwitcher />
+                                </div>
+                                <div className='lg:block hidden'>
+                                    <Button asChild size={"icon"} variant={"ghost"}>
+                                        <Link href={`https://wa.me/+916203257318?text=hi`} target='_blank'>
+                                            <Icons.whatsapp className='size-6' />
+                                        </Link>
+                                    </Button>
                                 </div>
                             </div>
                         </div>

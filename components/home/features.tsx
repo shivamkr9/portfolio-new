@@ -68,23 +68,23 @@ const featuresDetails = [
 
 export function Features() {
     return (
-        <div className="space-y-4" >
-            <BlurFade delay={BLUR_FADE_DELAY * 9}>
-                <h2 className="uppercase text-base font-medium text-rose-500">Features</h2>
-            </BlurFade>
-            <BlurFade delay={BLUR_FADE_DELAY * 9}>
-                <h1 className="lg:text-5xl md:text-3xl text-xl font-bold leading-[55px]">What I Do</h1>
-            </BlurFade>
-
-            <section className="grid gap-6 md:grid-cols-3 mt-8">
+        <div className="space-y-4 py-4 md:py-8 lg:py-12" >
+            <div className="space-y-2">
+                <BlurFade delay={BLUR_FADE_DELAY * 9}>
+                    <h2 className="uppercase text-sm font-medium text-rose-500 leading-none">Features</h2>
+                </BlurFade>
+                <BlurFade delay={BLUR_FADE_DELAY * 9}>
+                    <h1 className=" text-3xl font-bold ">What I Do</h1>
+                </BlurFade>
+            </div>
+            <section className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-4">
                 {featuresDetails.map((f, id) => (
                     <BlurFade
                         key={id}
                         delay={BLUR_FADE_DELAY * 6 + id * 0.05}
                     >
                         <Card
-
-                            className={`group flex flex-col justify-between rounded-md border bg-linear-to-br p-6 shadow-lg shadow-black/5 backdrop-blur gap-4 ${f.accent}`}
+                            className={`group flex flex-col justify-between rounded-md border bg-linear-to-br p-6 shadow-lg shadow-black/5 backdrop-blur gap-4 h-full ${f.accent}`}
                         >
                             <CardHeader className="space-y-3 p-0">
                                 <f.icon className="size-8 text-rose-500" />

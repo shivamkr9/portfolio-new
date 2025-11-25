@@ -1,12 +1,10 @@
-import Image from "next/image";
-import { CiInstagram } from "react-icons/ci";
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { BLUR_FADE_DELAY } from "@/data/resume";
-import BlurFade from "../magicui/blur-fade";
-import { IconProps, Icons } from "../icons";
-import { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { ReactNode } from "react";
+import { IconProps, Icons } from "@/components/icons";
+import BlurFade from "@/components/magicui/blur-fade";
 
 interface SocialMediaInterface {
     title: string;
@@ -36,8 +34,8 @@ const socialMedia: SocialMediaInterface[] = [
 export default function HeroSection() {
     return (
         <div className="py-8 lg:py-4">
-            <div className="grid lg:grid-cols-3 grid-cols-1 lg:gap-3 gap-10 ">
-                <div className="lg:col-span-2 col-span-1 my-auto flex flex-col items-start">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-3 gap-10 ">
+                <div className="lg:col-span-2 md:col-span-1 col-span-1 my-auto flex flex-col items-start">
                     <div className="flex-1 space-y-4">
                         <BlurFade delay={BLUR_FADE_DELAY * 9}>
                             <h1 className="leading-relaxed md:text-2xl text-base font-medium">Welcome to my world</h1>
