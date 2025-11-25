@@ -6,14 +6,7 @@ import Link from 'next/link'
 import React from 'react'
 import { MdOutlineQrCode } from "react-icons/md"
 import { ModeSwitcher } from './mode-switcher'
-
-
-const menuItems = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '#link' },
-    { name: "Projects", href: "/projects" },
-    { name: "Blogs", href: "/blogs" },
-]
+import { menuItems } from '@/data/menus'
 
 export const HeroHeader = () => {
     const [menuState, setMenuState] = React.useState(false)
@@ -87,27 +80,10 @@ export const HeroHeader = () => {
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
                                 <Button
                                     asChild
-                                    variant="outline"
                                     size="sm"
-                                    className={cn(isScrolled && 'lg:hidden')}>
+                                >
                                     <Link href="#">
-                                        <span>Login</span>
-                                    </Link>
-                                </Button>
-                                <Button
-                                    asChild
-                                    size="sm"
-                                    className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="#">
-                                        <span>Sign Up</span>
-                                    </Link>
-                                </Button>
-                                <Button
-                                    asChild
-                                    size="sm"
-                                    className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <Link href="#">
-                                        <span>Get Started</span>
+                                        <span>Resume</span>
                                     </Link>
                                 </Button>
                                 <div className='lg:block hidden'>

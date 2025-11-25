@@ -11,6 +11,8 @@ import { FiBookOpen, FiSlack } from "react-icons/fi"
 import { IoWifiOutline } from "react-icons/io5"
 import { LuBotMessageSquare, LuTv } from "react-icons/lu"
 import { RxHamburgerMenu } from "react-icons/rx"
+import BlurFade from "../magicui/blur-fade"
+import { BLUR_FADE_DELAY } from "@/data/resume"
 
 
 const featuresDetails = [
@@ -66,41 +68,50 @@ const featuresDetails = [
 
 export function Features() {
     return (
-        <div className="space-y-4">
-            <h2 className="uppercase text-base font-medium text-rose-500">Features</h2>
-            <h1 className="lg:text-5xl md:text-3xl text-xl font-bold leading-[55px]">What I Do</h1>
+        <div className="space-y-4" >
+            <BlurFade delay={BLUR_FADE_DELAY * 9}>
+                <h2 className="uppercase text-base font-medium text-rose-500">Features</h2>
+            </BlurFade>
+            <BlurFade delay={BLUR_FADE_DELAY * 9}>
+                <h1 className="lg:text-5xl md:text-3xl text-xl font-bold leading-[55px]">What I Do</h1>
+            </BlurFade>
 
             <section className="grid gap-6 md:grid-cols-3 mt-8">
-                {featuresDetails.map((f, i) => (
-                    <Card
-                        key={i}
-                        className={`group flex flex-col justify-between rounded-md border bg-linear-to-br p-6 shadow-lg shadow-black/5 backdrop-blur gap-4 ${f.accent}`}
+                {featuresDetails.map((f, id) => (
+                    <BlurFade
+                        key={id}
+                        delay={BLUR_FADE_DELAY * 6 + id * 0.05}
                     >
-                        <CardHeader className="space-y-3 p-0">
-                            <f.icon className="size-8 text-rose-500" />
-                        </CardHeader>
-                        <CardHeader className="space-y-3 p-0">
-                            <CardTitle className="text-2xl font-semibold text-foreground">
-                                {f.title}
-                            </CardTitle>
-                            <CardDescription className="text-base leading-relaxed text-muted-foreground">
-                                {f.description}
-                            </CardDescription>
-                        </CardHeader>
+                        <Card
 
-                        <CardContent className="p-0 pt-2">
-                            <Link
-                                href={f.title}
-                                className={buttonVariants({
-                                    variant: 'link',
-                                    size: 'sm',
-                                    className: 'px-0 text-base font-semibold text-primary',
-                                })}
-                            >
-                                Visit →
-                            </Link>
-                        </CardContent>
-                    </Card>
+                            className={`group flex flex-col justify-between rounded-md border bg-linear-to-br p-6 shadow-lg shadow-black/5 backdrop-blur gap-4 ${f.accent}`}
+                        >
+                            <CardHeader className="space-y-3 p-0">
+                                <f.icon className="size-8 text-rose-500" />
+                            </CardHeader>
+                            <CardHeader className="space-y-3 p-0">
+                                <CardTitle className="text-2xl font-semibold text-foreground">
+                                    {f.title}
+                                </CardTitle>
+                                <CardDescription className="text-base leading-relaxed text-muted-foreground">
+                                    {f.description}
+                                </CardDescription>
+                            </CardHeader>
+
+                            <CardContent className="p-0 pt-2">
+                                <Link
+                                    href={f.title}
+                                    className={buttonVariants({
+                                        variant: 'link',
+                                        size: 'sm',
+                                        className: 'px-0 text-base font-semibold text-primary',
+                                    })}
+                                >
+                                    Visit →
+                                </Link>
+                            </CardContent>
+                        </Card>
+                    </BlurFade>
                 ))}
             </section>
         </div>

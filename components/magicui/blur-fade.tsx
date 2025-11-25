@@ -29,7 +29,7 @@ const BlurFade = ({
     blur = "6px",
 }: BlurFadeProps) => {
     const ref = useRef(null);
-    // eslint-disable-next-line no-use-before-define
+    // @ts-expect-error
     const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
     const isInView = !inView || inViewResult;
     const defaultVariants: Variants = {

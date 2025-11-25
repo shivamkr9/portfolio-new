@@ -78,7 +78,7 @@ export const projectsData = [
 
 export function Projects() {
     return (
-        <div className="space-y-4">
+        <section id="projects" className="space-y-4">
             <div className="space-y-2 text-center">
                 <h2 className="uppercase text-base font-medium text-rose-500">Visit my portfolio and keep your feedback</h2>
                 <h1 className="lg:text-5xl md:text-3xl text-xl font-bold leading-[55px]">My Projects</h1>
@@ -88,17 +88,17 @@ export function Projects() {
                 {projectsData.map((p, i) => (
                     <Card
                         key={i}
-                        className={`group flex flex-col justify-between rounded-md border bg-linear-to-br p-6 shadow-lg shadow-black/5 backdrop-blur ${p.accent} `}
+                        className={`group flex flex-col justify-between rounded-md border bg-linear-to-br shadow-lg shadow-black/5 backdrop-blur p-0 ${p.accent} `}
                     >
                         <CardHeader className="space-y-3 p-0 relative aspect-video">
                             <Image
                                 src={p.image}
                                 alt="projects"
                                 fill
-                                className="object-cover rounded-md"
+                                className="object-cover rounded-t-md"
                             />
                         </CardHeader>
-                        <CardHeader className="space-y-3 p-0">
+                        <CardHeader className="space-y-3 p-4">
                             <CardTitle className="text-2xl font-semibold text-foreground">
                                 {p.title}
                             </CardTitle>
@@ -114,7 +114,7 @@ export function Projects() {
                             </CardDescription>
                         </CardHeader>
 
-                        <CardContent className="p-0">
+                        <CardContent className="p-4">
                             <Link
                                 href={p.link}
                                 className={buttonVariants({
@@ -129,7 +129,7 @@ export function Projects() {
                     </Card>
                 ))}
             </section>
-        </div>
+        </section>
     )
 }
 

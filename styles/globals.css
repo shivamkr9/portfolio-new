@@ -227,8 +227,7 @@
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
   }
-  
- 
+
   [data-slot="layout"] {
     @apply 3xl:p-2 overscroll-none;
   }
@@ -244,7 +243,6 @@
     @apply opacity-60 md:opacity-100;
   }
 }
-
 
 @utility container {
   @apply 3xl:max-w-screen-2xl mx-auto max-w-[1400px] px-4 lg:px-8;
