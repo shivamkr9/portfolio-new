@@ -1,21 +1,22 @@
-import { Icons } from "@/components/icons";
 import {
+  Briefcase,
   Cloud,
   Code,
-  Database,
-  Server,
   Code2,
+  Database,
   Layers,
+  Server,
   Zap,
-  Briefcase,
-} from "lucide-react";
+} from "lucide-react"
 
-export const BLUR_FADE_DELAY = 0.04;
+import { Icons } from "@/components/icons"
+
+export const BLUR_FADE_DELAY = 0.04
 
 const message =
-  "Hi%20Shivam!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20working%20with%20you%20on%20my%20project.%20Let's%20discuss%20how%20you%20can%20help!%0A%0ABest%20regards";
+  "Hi%20Shivam!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20working%20with%20you%20on%20my%20project.%20Let's%20discuss%20how%20you%20can%20help!%0A%0ABest%20regards"
 
-const contact = "+919508735800";
+const contact = "+919508735800"
 
 export const DATA = {
   name: "Shivam.",
@@ -282,4 +283,4 @@ export const DATA = {
         "from-amber-400/20 via-amber-200/10 to-background border-amber-400/40",
     },
   ],
-} as const;
+} as const

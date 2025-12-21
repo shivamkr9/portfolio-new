@@ -1,6 +1,6 @@
-import { GlobeIcon, MailIcon } from "lucide-react";
+import { GlobeIcon, MailIcon } from "lucide-react"
 
-export type IconProps = React.HTMLAttributes<SVGElement>;
+export type IconProps = React.HTMLAttributes<SVGElement>
 
 export const Icons = {
   aws: (props: IconProps) => (
@@ -21,8 +21,6 @@ export const Icons = {
         fill="#FF9900"
       />
     </svg>
-
-
   ),
   docker: (props: IconProps) => (
     <svg
@@ -38,7 +36,6 @@ export const Icons = {
         fill="#019BC6"
       />
     </svg>
-
   ),
   express: (props: IconProps) => (
     <svg
@@ -122,7 +119,6 @@ export const Icons = {
         fill="#404137"
       />
     </svg>
-
   ),
   postgresql: (props: IconProps) => (
     <svg
@@ -310,7 +306,6 @@ export const Icons = {
         fill="white"
       />
     </svg>
-
   ),
   rabbitmq: (props: IconProps) => (
     <svg
@@ -328,7 +323,6 @@ export const Icons = {
         fill="#FF6600"
       />
     </svg>
-
   ),
   kafka: (props: IconProps) => (
     <svg
@@ -442,7 +436,6 @@ export const Icons = {
         fill="currentColor"
       />
     </svg>
-
   ),
   rq: (props: IconProps) => (
     <svg
@@ -485,7 +478,6 @@ export const Icons = {
         fill="#1572B6"
       />
     </svg>
-
   ),
   html: (props: IconProps) => (
     <svg
@@ -502,4 +494,4 @@ export const Icons = {
       />
     </svg>
   ),
-};
+}
