@@ -4,22 +4,25 @@ import HeroSection from "@/components/home/hero";
 import { Projects } from "@/components/home/projects";
 import { Skills } from "@/components/home/skills";
 import { Icons } from "@/components/icons";
-import { Testimonials } from "@/components/testimonials";
+import { DATA } from "@/data/resume";
 import Link from "next/link";
-
 
 export default function Home() {
   return (
-    <div className="space-y-8  relative">
+    <div className="space-y-12  relative">
       <HeroSection />
       <Skills />
-      <Features />
       <Projects />
-      <Testimonials />
+      <Features />
+      {/* <Testimonials /> */}
       <Contact />
       <div className='fixed sm:bottom-10 bottom-5 sm:right-10 right-5 z-50'>
-        <Link href={`https://wa.me/+916203257318?text=hi`} target='_blank'>
-          <Icons.whatsapp className='size-8' />
+        <Link
+          href={DATA.whatshap}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icons.whatsapp className='size-12' />
         </Link>
       </div>
     </div>

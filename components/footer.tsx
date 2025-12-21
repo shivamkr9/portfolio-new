@@ -1,16 +1,16 @@
-import { menuItems } from '@/data/menus'
+import { DATA } from '@/data/resume'
 import Link from 'next/link'
 
 
 
 export function FooterSection() {
     return (
-        <footer className="border-b py-12">
-            <div className="mx-auto max-w-5xl px-6">
+        <footer className="border-t">
+            <div className="max-w-7xl mx-auto px-4 py-4">
                 <div className="flex flex-wrap justify-between gap-6">
                     <span className="text-muted-foreground order-last block text-center text-sm md:order-first">© {new Date().getFullYear()} Shivam, All rights reserved</span>
                     <div className="order-first flex flex-wrap justify-center gap-6 text-sm md:order-last">
-                        {menuItems.map((link, index) => (
+                        {DATA.menu.map((link, index) => (
                             <Link
                                 key={index}
                                 href={link.href}

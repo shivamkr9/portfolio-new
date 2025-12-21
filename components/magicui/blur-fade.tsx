@@ -29,7 +29,7 @@ const BlurFade = ({
     blur = "6px",
 }: BlurFadeProps) => {
     const ref = useRef(null);
-    // @ts-expect-error
+    // @ts-expect-error - useInView requires a RefObject but ref.current may be null
     const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
     const isInView = !inView || inViewResult;
     const defaultVariants: Variants = {

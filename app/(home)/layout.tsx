@@ -20,7 +20,7 @@ export default function RootAppLayout({ children }: Props) {
             <div className="[--heading-height:5rem] h-(--heading-height)">
                 <span className="sr-only">for subtract header height only</span>
             </div>
-            <section className="max-w-7xl mx-auto p-4">
+            <section className="max-w-7xl mx-auto px-4">
                 {children}
             </section>
             <FooterSection />

@@ -6,8 +6,8 @@ import Link from 'next/link'
 import React from 'react'
 import { MdOutlineQrCode } from "react-icons/md"
 import { ModeSwitcher } from './mode-switcher'
-import { menuItems } from '@/data/menus'
 import { Icons } from './icons'
+import { DATA } from '@/data/resume'
 
 export const HeroHeader = () => {
     const [menuState, setMenuState] = React.useState(false)
@@ -62,7 +62,7 @@ export const HeroHeader = () => {
 
                         <div className="absolute inset-0 m-auto hidden size-fit lg:block">
                             <ul className="flex gap-8 text-sm">
-                                {menuItems.map((item, index) => (
+                                {DATA.menu.map((item, index) => (
                                     <li key={index}>
                                         <Link
                                             href={item.href}
@@ -77,7 +77,7 @@ export const HeroHeader = () => {
                         <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
                             <div className="lg:hidden">
                                 <ul className="space-y-6 text-base">
-                                    {menuItems.map((item, index) => (
+                                    {DATA.menu.map((item, index) => (
                                         <li key={index}>
                                             <Link
                                                 href={item.href}
@@ -101,8 +101,13 @@ export const HeroHeader = () => {
                                     <ModeSwitcher />
                                 </div>
                                 <div className='lg:block hidden'>
-                                    <Button asChild size={"icon"} variant={"ghost"}>
-                                        <Link href={`https://wa.me/+916203257318?text=hi`} target='_blank'>
+                                    <Button asChild size={"icon"} variant={"ghost"} className='rounded-full p-0 hover:bg-background'>
+                                        <Link
+                                            href={DATA.whatshap}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+
+                                        >
                                             <Icons.whatsapp className='size-6' />
                                         </Link>
                                     </Button>

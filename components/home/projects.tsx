@@ -1,134 +1,127 @@
+"use client"
 
-import { Badge } from '@/components/ui/badge';
-import { buttonVariants } from "@/components/ui/button";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle
-} from "@/components/ui/card";
-import Image from "next/image";
-import Link from "next/link";
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
+import { DATA } from "@/data/resume"
+import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
+import { Calendar, Clock } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { useState } from "react"
 
-
-
-export const projectsData = [
-    {
-        title: "E-Commerce Web App",
-        techStack: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
-        description:
-            "A full-featured e-commerce platform with authentication, payments, product filtering, and admin dashboard.",
-        image: "/projects/shoping.jpg",
-        link: "#",
-        accent:
-            'from-emerald-300/20 via-emerald-200/10 to-background border-emerald-300/40',
-    },
-    {
-        title: "Real-Time Chat App",
-        techStack: ["React", "Firebase", "Zustand", "CSS Modules"],
-        description:
-            "A real-time messaging application with user presence status and live group conversations.",
-        image: "/projects/chat.jpg",
-        link: "#",
-        accent:
-            'from-purple-400/20 via-purple-300/10 to-background border-purple-400/40',
-    },
-    {
-        title: "Project Management Tool",
-        techStack: ["Next.js", "Supabase", "Tailwind CSS", "Shadcn UI"],
-        description:
-            "Kanban-style project management app inspired by Jira with drag-and-drop tasks and role-based access.",
-        image: "/projects/project.jpg",
-        link: "#",
-        accent:
-            'from-cyan-400/20 via-cyan-200/10 to-background border-cyan-400/40',
-    },
-    {
-        title: "Portfolio Website",
-        techStack: ["Next.js", "Framer Motion", "Tailwind CSS"],
-        description:
-            "Developer portfolio with smooth animations, blog section, and project showcase.",
-        image: "/projects/exam.jpg",
-        link: "#",
-        accent: 'from-primary/20 via-primary/5 to-background border-primary/40',
-    },
-    {
-        title: "Weather Forecast App",
-        techStack: ["React", "OpenWeather API", "CSS Modules"],
-        description:
-            "A weather app that fetches real-time data using API integration and displays detailed forecasts.",
-        image: "/projects/project.jpg",
-        link: "#",
-        accent: 'from-blue-400/20 via-blue-400/5 to-background border-blue-400/40',
-    },
-    {
-        title: "Online Quiz Platform",
-        techStack: ["Next.js", "MongoDB", "JWT Auth", "Tailwind CSS"],
-        description:
-            "An online quiz system with dynamic question rendering, timer, scoring, and leaderboard.",
-        image: "/projects/chat.jpg",
-        link: "#",
-        accent:
-            'from-amber-400/20 via-amber-200/10 to-background border-amber-400/40',
-    },
-]
 
 
 
 export function Projects() {
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+
     return (
-        <section id="projects" className="space-y-4 py-4 md:py-8 lg:py-12">
-            <div className="space-y-2 ">
-                <h2 className="uppercase text-base font-medium text-rose-500 leading-none">Visit my portfolio and keep your feedback</h2>
-                <h1 className="md:text-3xl  font-bold">My Projects</h1>
-            </div>
+        <section id="projects" className="space-y-8">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="space-y-4"
+            >
+                <h2 className="md:text-3xl  font-bold">
+                    Featured Projects
+                </h2>
+            </motion.div>
 
-            <section className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-4">
-                {projectsData.map((p, i) => (
-                    <Card
-                        key={i}
-                        className={`group flex flex-col justify-between rounded-md border bg-linear-to-br shadow-lg shadow-black/5 backdrop-blur h-full p-0 ${p.accent} `}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {DATA.projects.map((project, index) => (
+                    <motion.div
+                        key={project.name}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        onMouseEnter={() => setHoveredIndex(index)}
+                        onMouseLeave={() => setHoveredIndex(null)}
                     >
-                        <CardHeader className="space-y-3 p-0 relative aspect-video">
-                            <Image
-                                src={p.image}
-                                alt="projects"
-                                fill
-                                className="object-cover rounded-t-md"
-                            />
-                        </CardHeader>
-                        <CardHeader className="space-y-3 p-4">
-                            <CardTitle className="text-2xl font-semibold text-foreground">
-                                {p.title}
-                            </CardTitle>
-                            <CardDescription className="flex items-center gap-1 flex-wrap">
-                                {p.techStack.map((t) => (
-                                    <Badge key={t} >
-                                        {t}
-                                    </Badge>
-                                ))}
-                            </CardDescription>
-                            <CardDescription className="text-base leading-relaxed text-muted-foreground">
-                                {p.description}
-                            </CardDescription>
-                        </CardHeader>
+                        <Card className={cn("group h-full overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-border transition-all duration-300 hover:shadow-2xl hover:shadow-black/10 hover:-translate-y-1 pt-0 bg-linear-to-br relative", project.gradient)}>
+                            {/* Image Container with Auto-Scroll Effect */}
+                            <div className={`relative h-64 overflow-hidden`}>
+                                <motion.div
+                                    className="absolute inset-0"
+                                    animate={hoveredIndex === index ? { y: [0, -400, 0] } : { y: 0 }}
+                                    transition={
+                                        hoveredIndex === index
+                                            ? {
+                                                duration: 8,
+                                                ease: "linear",
+                                                repeat: Number.POSITIVE_INFINITY,
+                                            }
+                                            : { duration: 0.3 }
+                                    }
+                                >
+                                    <Image
+                                        src={project.image}
+                                        alt={project.name}
+                                        width={1920}
+                                        height={1080}
+                                        className="w-full h-auto object-cover object-top"
+                                        priority={index < 3}
+                                    />
+                                </motion.div>
 
-                        <CardContent className="p-4">
+                                {/* Overlay gradient */}
+                                <div className="absolute inset-0 bg-linear-to-t from-card via-card/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                            </div>
+
+                            {/* Content */}
+                            <CardContent className="space-y-4">
+                                {/* Header */}
+                                <div className="space-y-2">
+                                    <div className="flex items-start justify-between gap-2">
+                                        <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors">
+                                            {project.name}
+                                        </h3>
+                                    </div>
+
+                                    {/* Timeline */}
+                                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                                        <div className="flex items-center gap-1.5">
+                                            <Calendar className="w-4 h-4" />
+                                            <span>{project.period}</span>
+                                        </div>
+                                        <div className="flex items-center gap-1.5">
+                                            <Clock className="w-4 h-4" />
+                                            <span>{project.duration}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Tech Stack */}
+                                <div className="flex flex-wrap gap-2">
+                                    {project.techStack.map((tech) => (
+                                        <Badge
+                                            key={tech}
+                                            variant="outline"
+                                            className="border border-primary/20 hover:bg-secondary transition-colors"
+                                        >
+                                            {tech}
+                                        </Badge>
+                                    ))}
+                                </div>
+
+                                {/* Description */}
+                                <p className="text-sm leading-relaxed text-muted-foreground line-clamp-3">{project.description}</p>
+                            </CardContent>
                             <Link
-                                href={p.link}
-                                className={buttonVariants({
-                                    variant: 'link',
-                                    size: 'sm',
-                                    className: 'px-0 text-base font-semibold text-primary',
-                                })}
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="absolute inset-0 z-10"
+                                aria-label={`Visit ${project.name}`}
                             >
-                                Visit →
+                                <span className="sr-only">{project.name}</span>
                             </Link>
-                        </CardContent>
-                    </Card>
+                        </Card>
+                    </motion.div>
                 ))}
-            </section>
+            </div>
         </section>
     )
 }
