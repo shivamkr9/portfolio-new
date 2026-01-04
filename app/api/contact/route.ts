@@ -8,34 +8,42 @@ export async function POST(req: Request) {
 
     // Validate input
     if (!name || !email || !contact || !message) {
-      return Response.json({ error: "Missing required fields" }, { status: 400 })
+      return Response.json(
+        { error: "Missing required fields" },
+        { status: 400 }
+      )
     }
 
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_SERVER_HOST,
       port: Number(process.env.EMAIL_SERVER_PORT),
+      // secure: false, // true only for port 465
       auth: {
         user: process.env.EMAIL_SERVER_USER,
         pass: process.env.EMAIL_SERVER_PASSWORD,
       },
     })
 
-    // Get the selected template HTML
-    const templateFn = emailTemplates[template as keyof typeof emailTemplates] || emailTemplates.minimalist
+    const templateFn =
+      emailTemplates[template as keyof typeof emailTemplates] ||
+      emailTemplates.minimalist
+
     const htmlContent = templateFn({ name, email, contact, message })
 
-    // Send the email
     await transporter.sendMail({
-      from: `"${name}" <${process.env.EMAIL_FROM}>`, // Often needs to be a verified domain
-      to: process.env.EMAIL_TO,
-      replyTo: email,
-      subject: `New Portfolio Message from ${name}`,
+      from: `"Portfolio Contact" <${process.env.EMAIL_SERVER_USER}>`,
+      to: process.env.EMAIL_SERVER_USER, // send to yourself
+      replyTo: email, // user's email
+      subject: `Contact Message from ${name}`,
       html: htmlContent,
     })
 
     return Response.json({ success: true })
   } catch (error) {
-    console.error("[v0] Nodemailer error:", error)
-    return Response.json({ error: "Failed to send email" }, { status: 500 })
+    console.error("Nodemailer error:", error)
+    return Response.json(
+      { error: "Failed to send email" },
+      { status: 500 }
+    )
   }
 }
