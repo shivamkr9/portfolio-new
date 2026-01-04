@@ -24,7 +24,7 @@ export const DATA = {
   whatshap: `https://wa.me/${contact}?text=${message}`,
   role: "Full Stack Developer",
   about:
-    "Experienced Full Stack MERN Developer with **~3.5 years** of hands-on experience, working professionally since late **2022**, focused on building scalable, secure, and user-centric web applications using React, Next.js, Node.js, Express, MongoDB, and AWS.",
+    "Experienced Full Stack MERN Developer with **~3.3 years** of hands-on experience, working professionally since late **2022**, focused on building scalable, secure, and user-centric web applications using React, Next.js, Node.js, Express, MongoDB, and AWS.",
   menu: [
     { name: "Home", href: "/" },
     { name: "Skills", href: "#skills" },
