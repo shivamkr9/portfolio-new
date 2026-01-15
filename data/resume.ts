@@ -212,13 +212,25 @@ export const DATA = {
   ],
   projects: [
     {
+      name: "DesignCafe",
+      description:
+        "DesignCafe has delivered interior design solutions for 15,000+ homes across India, earning recognition in over 30 leading global design publications.",
+      techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+      link: "https://srichaitanyascore.com",
+      period: "Jun 2025 – Sep 2025",
+      duration: "4 months",
+      image: "/projects/design-cafe.png",
+      gradient:
+        "from-amber-400/20 via-amber-200/10 to-background border-amber-400/40",
+    },
+    {
       name: "Sri Chaitanya SCORE",
       description:
         "A national-level scholarship and talent search exam for students in Grades 3-12, offering scholarships up to 100%, cash rewards, mentorship, and educational trips, helping students excel in competitive exams.",
       techStack: ["React", "Next.js", "Node.js", "Express", "PostgreSQL"],
       link: "https://srichaitanyascore.com",
-      period: "Jun 2025 – Jan 2026",
-      duration: "8 months",
+      period: "Jun 2025 – Sep 2025",
+      duration: "4 months",
       image: "/projects/srichaitanyascore.png",
       gradient:
         "from-emerald-300/20 via-emerald-200/10 to-background border-emerald-300/40",
@@ -241,8 +253,8 @@ export const DATA = {
         "A Patna-based event management and media production company offering comprehensive services including event planning, corporate events, digital marketing, advertising, and brand promotions across multiple cities.",
       techStack: ["React", "Node.js", "Express", "MongoDB", "Bootstrap"],
       link: "https://www.amoebaproductions.in",
-      period: "Mar 2024 – Sep 2024",
-      duration: "7 months",
+      period: "Feb 2024 – Sep 2024",
+      duration: "8 months",
       image: "/projects/amoebaproductions.png",
       gradient:
         "from-cyan-400/20 via-cyan-200/10 to-background border-cyan-400/40",
@@ -253,8 +265,8 @@ export const DATA = {
         "Home interior and renovation platform providing end-to-end interior design solutions with technology-driven design tools, professional designers, and curated vendors delivering personalized interiors across India.",
       techStack: ["React", "TypeScript", "Next.js", "MongoDB", "Tailwind CSS"],
       link: "https://www.livspace.com",
-      period: "Jul 2023 – Feb 2024",
-      duration: "8 months",
+      period: "Apr 2023 – Jan 2024",
+      duration: "10 months",
       image: "/projects/livspace.png",
       gradient: "from-primary/20 via-primary/5 to-background border-primary/40",
     },
@@ -264,23 +276,11 @@ export const DATA = {
         "A leading event management platform in India specializing in corporate and team-building experiences, offering virtual, in-person, hybrid events with over 100 unique professionally curated activities.",
       techStack: ["React", "Node.js", "Express", "MongoDB", "Next.js"],
       link: "https://sosparty.io",
-      period: "Dec 2022 – Jun 2023",
-      duration: "7 months",
+      period: "Oct 2022 – Mar 2023",
+      duration: "6 months",
       image: "/projects/sosparty.png",
       gradient:
         "from-blue-400/20 via-blue-400/5 to-background border-blue-400/40",
-    },
-    {
-      name: "Indraprastha Public School",
-      description:
-        "A progressive educational institution offering a complete curriculum across academics, sports, arts, and personality development, nurturing confident, well-rounded individuals prepared for future challenges.",
-      techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
-      link: "https://indraprasthapublicschool.com",
-      period: "Oct 2022 – Nov 2022",
-      duration: "2 months",
-      image: "/projects/indraprasthapublicschool.png",
-      gradient:
-        "from-amber-400/20 via-amber-200/10 to-background border-amber-400/40",
     },
   ],
 } as const

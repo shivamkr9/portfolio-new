@@ -24,15 +24,40 @@ export const HeroHeader = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // React.useEffect(() => {
+  //   const link = document.createElement("a")
+  //   link.href = "/resume/shivam.pdf" // file in public/files/
+  //   link.download = "shivam.pdf" // optional filename
+  //   // some browsers block automatic download — user gesture may be required
+  //   document.body.appendChild(link)
+  //   link.click()
+  //   link.remove()
+  // }, [])
+
   React.useEffect(() => {
-    const link = document.createElement("a")
-    link.href = "/resume/shivam.pdf" // file in public/files/
-    link.download = "shivam.pdf" // optional filename
-    // some browsers block automatic download — user gesture may be required
-    document.body.appendChild(link)
-    link.click()
-    link.remove()
-  }, [])
+    const LAST_VISIT_KEY = "resume_last_download";
+    const now = Date.now();
+    const lastVisit = localStorage.getItem(LAST_VISIT_KEY);
+
+    const ONE_DAY = 24 * 60 * 60 * 1000; // 24 hours in ms
+
+    const shouldDownload =
+      !lastVisit || now - Number(lastVisit) >= ONE_DAY;
+
+    if (shouldDownload) {
+      const link = document.createElement("a");
+      link.href = "/resume/shivam.pdf";
+      link.download = "shivam.pdf";
+
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      // Save current timestamp
+      localStorage.setItem(LAST_VISIT_KEY, now.toString());
+    }
+  }, []);
+
   return (
     <header className="relative">
       <nav
@@ -43,7 +68,7 @@ export const HeroHeader = () => {
           className={cn(
             "mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12",
             isScrolled &&
-              "bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5"
+            "bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5"
           )}
         >
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
