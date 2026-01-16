@@ -217,7 +217,7 @@ export const DATA = {
         "DesignCafe has delivered interior design solutions for 15,000+ homes across India, earning recognition in over 30 leading global design publications.",
       techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
       link: "https://srichaitanyascore.com",
-      period: "Jun 2025 – Sep 2025",
+      period: "Oct 2025 – Jan 2026",
       duration: "4 months",
       image: "/projects/design-cafe.png",
       gradient:
@@ -268,7 +268,8 @@ export const DATA = {
       period: "Apr 2023 – Jan 2024",
       duration: "10 months",
       image: "/projects/livspace.png",
-      gradient: "from-primary/20 via-primary/5 to-background border-primary/40",
+      gradient:
+        "from-primary/20 via-primary/5 to-background border-primary/40",
     },
     {
       name: "SOS Party",
@@ -282,5 +283,6 @@ export const DATA = {
       gradient:
         "from-blue-400/20 via-blue-400/5 to-background border-blue-400/40",
     },
-  ],
+  ]
+
 } as const
